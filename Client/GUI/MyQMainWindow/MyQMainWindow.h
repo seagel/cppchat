@@ -4,57 +4,67 @@ Megjegyzés: a sok helyen még a típusát sem írom oda a paraméternek, jelezve, hog
 A MyQMainWindow a fõablak lesz (lehetne valami frappnsabb név): tehát contact list, állapot, leírás, stb. kezelésére való.
 -szk 2008.03.16.
 */
+#ifndef MYQMAIN
+#define MYQMAIN
+#include <QWidget>
+#include <String>
 
+
+//csak azért kell, hgy tudjak fordítani - tehát egyelõre ezt a részt nem fordítja
+#ifdef HAS_MYQMAIN
 
 
 class MyQMainWindow: public QMainWindow{
-	
+
 	Q_OBJECT
-	
+
 	public slots:	//lehet, hogy a private is elég...
-		
+
 		//*******************ezek a net libraryval való kommunikációra lesznek*******************
-		void connected(contactList);								
+		//void connected(contactList);
 			//ha csatlakozott akkor megkapja a kontact listet
-			
-		void connectionChanged(int state);
-			
-		void newPartnerAttemp(String username, QString name, QString description);	
+
+		void myConnectionChanged(int state);
+
+		void newPartnerAttemp(std::string username, QString name, QString description);
 			//valaki felvett a partnerlistájára-a; a username, amivel bejelentkezik, a name ami megjelenik
 			//a QString az unicode, a username-re elég a sima ascii is
-	
-		void someonesStateChanged(String username, int newState);				
+
+		void someonesStateChanged(std::string username, int newState);
 			//a state-be tartozik a login, logoff is
-			
-		void someonesNameChanged(String username, QString newName);
-		void someonesDescriptionChanged(String username, QString newDescreption);
-		void messageReceived(String username, QString message, int connectionID);		
+
+		void someonesNameChanged(std::string username, QString newName);
+		void someonesDescriptionChanged(std::string username, QString newDescreption);
+		void messageReceived(std::string username, QString message, int connectionID);
 			//username: kitöl; connectionID: gondolom, hogy ha több ablakban valaki(sima+group), akkor az több connection-ben van,
 			//tehát, ennek az id-je kell, hogy tudjuk melyik ablakba kell rakni az üzenetet
-			
-	
+
+
 	signals:
-		
+
 		//*******************ezeket elsõrorban a net librarynak küldi*******************
-		void connect(String username, String passwd);
+		void connect(std::string username, std::string passwd);
 			//Attemp to connect
-	
+
 		void myStateChanged(int newState);
-		void myNameChanged(String newName);
+		void myNameChanged(std::string newName);
 		void myDescriptionChanged(QString newDescription);
-		
+
 		void acceptUser(QString username);
 			//magyarán felveszem a partnerlistára
-	
-		void initiateUser(String name);
-			//jobb nevet! tehát felveszem partnernek
-			
-			
-		//*******************üzenetek a ChatWindow-oknak ******************* 
+
+		void initiateUser(std::string name);
+			//jobb nevet! tehát felveszem partnernek - mármint megpróbálom
+
+
+		//*******************üzenetek a ChatWindow-oknak *******************
 			//- ha ezek a nettõl jövõnek tûnnek, akkor úgy megy, hogy ezeket továbbítja a chatwindowoknak
-		void messageToWindow(String username, QString message, int connectionID); 		
+		void messageToWindow(std::string username, QString message, int connectionID);
 			//jobb nevet!  - egy ablakhoz továbbitja az üzenetet ( a rendszer elõbb létrehozza az ablakot ha az nincs)
-		
-		
-		
+
+
+
 };
+#endif
+
+#endif
