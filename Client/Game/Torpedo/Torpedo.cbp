@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Torpedo Game" />
+		<Option platforms="Windows;" />
+		<Option makefile_is_custom="1" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<MakeCommands>
+			<Build command="$make -f $makefile.$target" />
+			<CompileFile command="$make -f $makefile $file" />
+			<Clean command="$make -f $makefile.$target clean" />
+			<DistClean command="$make -f $makefile.$target distclean" />
+		</MakeCommands>
+		<Build>
+			<Target title="Release">
+				<Option output="Debug\sample" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Release\" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option use_console_runner="0" />
+				<MakeCommands>
+					<Build command="$make -f $makefile.$target" />
+					<CompileFile command="$make -f $makefile $file" />
+					<Clean command="$make -f $makefile.$target clean" />
+					<DistClean command="$make -f $makefile.$target distclean" />
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Extensions>
+			<code_completion>
+				<search_path add="$(#qt.include) " />
+				<search_path add="$(#qt.include)/QtCore" />
+				<search_path add="$(#qt.include)/QtGui" />
+			</code_completion>
+			<debugger />
+			<qtworkbench>
+				<enabled value="true" />
+			</qtworkbench>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
