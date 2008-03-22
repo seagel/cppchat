@@ -1,6 +1,0 @@
-Ebbe azokat a feltételezésket írtam, amiket feltettem a kód írása során.
-Mármint amiket nem felejtettem el :D
-- a username egy egyedi azonosító, amibõl az egész rendszeren belül egy van
-- connectionId: a userhez rendelhetõ kapcsolat száma, ami:
-			-nem 0,
-			-hirtelen kapcsolatmegszakadáskor a nethandler fenn tudja tartani ugyanazt az id-t, és ugyanazt kapja vissza a user mikor visszajön
