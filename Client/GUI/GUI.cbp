@@ -32,7 +32,12 @@
 		<Unit filename="ChatWindow\ChatWindow.h" />
 		<Unit filename="ChatWindow\MyInputField\MyInputField.cpp" />
 		<Unit filename="ChatWindow\MyInputField\MyInputField.h" />
-		<Unit filename="MyQMainWindow\MyQMainWindow.h" />
+		<Unit filename="ConfigHandler\ConfigHandler.cpp" />
+		<Unit filename="ConfigHandler\ConfigHandler.h" />
+		<Unit filename="MyMainWindow\MyMainWindow.cpp" />
+		<Unit filename="MyMainWindow\MyMainWindow.h" />
+		<Unit filename="MyMainWindow\MySignInWidget\MySignInWidget.cpp" />
+		<Unit filename="MyMainWindow\MySignInWidget\MySignInWidget.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion>
