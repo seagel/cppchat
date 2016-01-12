@@ -1,0 +1,1 @@
+Our first project. A C++ Chat, with Qt.
